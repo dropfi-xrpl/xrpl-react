@@ -1,0 +1,59 @@
+{
+  "name": "@dropfi/xrpl-react",
+  "version": "0.1.6",
+  "description": "React provider and hook for XRPL dApps using DropFi wallet",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "rollup": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "^5.0.0"
+  },
+  "author": "DropFi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dellybro/XrplReact"
+  },
+  "homepage": "https://github.com/DropFi/xrpl-react#readme",
+  "bugs": {
+    "url": "https://github.com/Dellybro/XrplReact/issues"
+  },
+  "keywords": [
+    "xrpl",
+    "dropfi",
+    "react",
+    "wallet",
+    "provider",
+    "hook"
+  ],
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
+}
