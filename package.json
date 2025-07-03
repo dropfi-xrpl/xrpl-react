@@ -1,6 +1,6 @@
 {
   "name": "@dropfi/xrpl-react",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "React provider and hook for XRPL dApps using DropFi wallet",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -39,11 +39,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dellybro/XrplReact"
+    "url": "https://github.com/dropfi-xrpl/xrpl-react"
   },
-  "homepage": "https://github.com/DropFi/xrpl-react#readme",
+  "homepage": "https://dropfi.app",
   "bugs": {
-    "url": "https://github.com/Dellybro/XrplReact/issues"
+    "url": "https://github.com/dropfi-xrpl/xrpl-react/issues"
   },
   "keywords": [
     "xrpl",
