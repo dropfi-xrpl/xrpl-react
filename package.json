@@ -1,6 +1,6 @@
 {
   "name": "@dropfi/xrpl-react",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React provider and hook for XRPL dApps using DropFi wallet",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

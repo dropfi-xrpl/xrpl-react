@@ -20,24 +20,25 @@ function useXrplReact() {
     const [error, setError] = react.useState(null);
     const [isConnecting, setIsConnecting] = react.useState(false);
     react.useEffect(() => {
-        if (typeof window === 'undefined' || !window.xrpl)
+        if (typeof window === 'undefined')
             return;
-        window.xrpl?.initialize?.();
-        setInitialized(true);
-    }, []);
-    react.useEffect(() => {
-        if (typeof window === 'undefined' || !window.xrpl)
+        const xrpl = window.xrpl;
+        if (!xrpl)
             return;
         const handleSelectedNetwork = (val) => setNetwork(val);
         const handleSelectedAddress = (val) => setAddress(val);
         const handleConnectedAccounts = (val) => setConnectedAccounts(val);
-        window.xrpl?.on?.('xrpl_selectedNetwork', handleSelectedNetwork);
-        window.xrpl?.on?.('xrpl_selectedAddress', handleSelectedAddress);
-        window.xrpl?.on?.('xrpl_connectedAccounts', handleConnectedAccounts);
+        // 1) attach listeners
+        xrpl.on?.('xrpl_selectedNetwork', handleSelectedNetwork);
+        xrpl.on?.('xrpl_selectedAddress', handleSelectedAddress);
+        xrpl.on?.('xrpl_connectedAccounts', handleConnectedAccounts);
+        // 2) then initialize
+        xrpl.initialize?.();
+        setInitialized(true);
         return () => {
-            window.xrpl?.off?.('xrpl_selectedNetwork', handleSelectedNetwork);
-            window.xrpl?.off?.('xrpl_selectedAddress', handleSelectedAddress);
-            window.xrpl?.off?.('xrpl_connectedAccounts', handleConnectedAccounts);
+            xrpl.off?.('xrpl_selectedNetwork', handleSelectedNetwork);
+            xrpl.off?.('xrpl_selectedAddress', handleSelectedAddress);
+            xrpl.off?.('xrpl_connectedAccounts', handleConnectedAccounts);
         };
     }, []);
     const connect = async () => {
